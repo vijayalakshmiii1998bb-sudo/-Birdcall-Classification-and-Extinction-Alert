@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="upload-wrap">
+  <h2>Image Model — Upload</h2>
+  <form method="post" enctype="multipart/form-data" class="card form-card" style='opacity:60%'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Predict</button>
+  </form>
+</section>
+{% endblock %}

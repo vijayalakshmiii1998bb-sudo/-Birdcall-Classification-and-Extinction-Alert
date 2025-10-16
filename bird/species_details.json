@@ -1,0 +1,92 @@
+[
+  {
+    "species_key": "corvus_splendens",
+    "common_name": "House Crow",
+    "scientific_name": "Corvus splendens",
+    "habitat": "Urban areas, villages, coastal regions",
+    "diet": "Omnivorous; scraps, insects, grains",
+    "seen_in": "Across the Indian subcontinent",
+    "image_url": ""
+  },
+  {
+    "species_key": "pycnonotus_cafer",
+    "common_name": "Red-vented Bulbul",
+    "scientific_name": "Pycnonotus cafer",
+    "habitat": "Gardens, scrub, open forests",
+    "diet": "Fruits, nectar, insects",
+    "seen_in": "Most of India and Sri Lanka",
+    "image_url": ""
+  },
+  {
+    "species_key": "passer_domesticus",
+    "common_name": "House Sparrow",
+    "scientific_name": "Passer domesticus",
+    "habitat": "Urban and rural settlements",
+    "diet": "Seeds, grains, small insects",
+    "seen_in": "Widespread, declining in some cities",
+    "image_url": ""
+  },
+  {
+    "species_key": "turdoides_striata",
+    "common_name": "Jungle Babbler",
+    "scientific_name": "Turdoides striata",
+    "habitat": "Scrub, gardens, woodland edges",
+    "diet": "Insects, berries, grains",
+    "seen_in": "Northern and central India",
+    "image_url": ""
+  },
+  {
+    "species_key": "copsychus_saulensis",
+    "common_name": "Oriental Magpie-Robin",
+    "scientific_name": "Copsychus saularis",
+    "habitat": "Open woodland, gardens, parks",
+    "diet": "Insects, small invertebrates",
+    "seen_in": "Indian subcontinent and SE Asia",
+    "image_url": ""
+  },
+  {
+    "species_key": "psittacula_krameri",
+    "common_name": "Rose-ringed Parakeet",
+    "scientific_name": "Psittacula krameri",
+    "habitat": "Urban trees, farmland, woodland",
+    "diet": "Seeds, fruits, buds",
+    "seen_in": "Across India; urban parks common",
+    "image_url": ""
+  },
+  {
+    "species_key": "dendrocitta_vagabunda",
+    "common_name": "Rufous Treepie",
+    "scientific_name": "Dendrocitta vagabunda",
+    "habitat": "Open forests, groves, gardens",
+    "diet": "Insects, fruits, eggs, scraps",
+    "seen_in": "Indian subcontinent",
+    "image_url": ""
+  },
+  {
+    "species_key": "coracias_benghalensis",
+    "common_name": "Indian Roller",
+    "scientific_name": "Coracias benghalensis",
+    "habitat": "Open countryside, wires, farms",
+    "diet": "Insects, small reptiles",
+    "seen_in": "Across India; often on wires",
+    "image_url": ""
+  },
+  {
+    "species_key": "halcyon_smyrnensis",
+    "common_name": "White-throated Kingfisher",
+    "scientific_name": "Halcyon smyrnensis",
+    "habitat": "Near water, fields, gardens",
+    "diet": "Fish, frogs, insects, lizards",
+    "seen_in": "Widespread in India",
+    "image_url": ""
+  },
+  {
+    "species_key": "pycnonotus_jocosus",
+    "common_name": "Red-whiskered Bulbul",
+    "scientific_name": "Pycnonotus jocosus",
+    "habitat": "Gardens, plantations, edges",
+    "diet": "Fruits, nectar, insects",
+    "seen_in": "Peninsular India, foothills",
+    "image_url": ""
+  }
+]

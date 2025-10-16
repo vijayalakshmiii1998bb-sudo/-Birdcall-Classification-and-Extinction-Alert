@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header" style="margin: 10px 30px">
+            <img src="{% static 'images/bg1.png' %}"  class="logo"/>
+            <ul>
+                <li><a href="{% url 'bird:home' %}" style='text-decoration:none;color:inherit'>HOME</a></li>
+                <li>CATEGORY</li>
+                <li>INFO</li>
+                <li>CONTACT</li>
+            </ul>
+           </div>
+        <div class="effect">
+            <div class="birt">
+               <img src="{% static 'images/giphy.gif' %}" alt="">
+            </div>
+        </div>
+        <div class="list">
+            <div class="item" id="item_0">
+                <img src="{% static 'images/bg3.PNG' %}" alt="" />
+               <div class="content">
+                <h2>BIRD CALL: SPECIES CLASSIFICATION AND EXTINCTION ALERTS</h2>
+                {% comment %} <div class="content1">
+                    Tính rủ anh đi cháy phố, chưa kịp cháy phố mà anh cháy mất tiêu <br/>
+                    Tính rủ anh đi cháy phố, chưa kịp cháy phố mà anh cháy mất tiêu <br/>
+                </div> {% endcomment %}
+                <div class="button">
+                   <a href="{% url 'bird:home' %}" style='text-decoration:none'> Explore</a>
+                </div>
+               </div>
+            </div>
+            <div class="item" id="item_1">
+                <img src="{% static 'images/bg1.png' %}" alt="" />
+               <div class="content">
+                <h2>BIRD CALL: SPECIES CLASSIFICATION AND EXTINCTION ALERTS</h2>
+                {% comment %} <div class="content1">
+                    Tính rủ anh đi cháy phố, chưa kịp cháy phố mà anh cháy mất tiêu <br/>
+                    Tính rủ anh đi cháy phố, chưa kịp cháy phố mà anh cháy mất tiêu <br/>
+                </div> {% endcomment %}
+                <div class="button">
+                    Home Page
+                </div>
+               </div>
+            </div>
+            <div class="item " id="item_2">
+                <img src="{% static 'images/bg6.png' %}" alt="" />
+               <div class="content">
+                <h2>BIRD CALL: SPECIES CLASSIFICATION AND EXTINCTION ALERTS</h2>
+                {% comment %} <div class="content1">
+                    Tính rủ anh đi cháy phố, chưa kịp cháy phố mà anh cháy mất tiêu <br/>
+                    Tính rủ anh đi cháy phố, chưa kịp cháy phố mà anh cháy mất tiêu <br/>
+                </div> {% endcomment %}
+                <div class="button">
+                    Home Page
+                </div>
+               </div>
+            </div>
+        </div>
+    <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+
+    <audio id="bgm" autoplay loop>
+    <source src="{% static 'audio/music.mp3' %}" type="audio/mp3">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <script>
+    const bgm = document.getElementById("bgm");
+
+    // Try autoplay on load
+    window.addEventListener("load", async () => {
+      try {
+        await bgm.play();
+      } catch (err) {
+        // If autoplay blocked, wait for first click anywhere
+        document.body.addEventListener("click", () => {
+          bgm.play();
+        }, { once: true });
+      }
+    });
+  </script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var count_group = $(".list .item").length;
+    var active = 0;
+    var deg_bg = 0;
+    var begin= true;
+    function Load(){
+
+        if(begin){
+            begin = false;
+        }else{
+            $('#item_'+(active - 2 < -1 ? count_group - 2 : active - 2 < 0 ? count_group -1 : active - 2)).removeClass('hide');
+            $('#item_'+(active - 1 < 0 ? count_group - 1 : active - 1)).removeClass('active');
+            $('#item_'+(active - 1 < 0 ? count_group - 1 : active - 1)).addClass('hide');
+        }
+
+        $('#item_'+active).removeClass('hide');
+        $('#item_'+active).addClass('active');
+
+        $('.dots-page div').removeClass('active');
+        $('#dot_'+active).addClass('active');
+        $('.effect').addClass('start');
+        beginPosition();
+
+        
+        setTimeout(function (){
+            $('.effect').removeClass('start');
+        }, 3000)
+    }
+    Load();
+    
+    $('#next').on('click', function(){
+      active = active + 1 >= count_group ? 0 : active + 1;
+      Load();
+    })
+        $('#prev').on('click', function(){
+        active = active - 1 < 0 ? count_group - 1 : active - 1;
+        })
+    });
+$('.button').hover(function(){
+    if($(".effect").hasClass("start")){
+        return;
+    }
+        $('.birt').css('right','31%');
+        $('.birt').css('bottom','16%');
+        $('.birt').css('transform','rotateY(192deg) rotate(-97deg)');
+}
+,function(){
+       beginPosition();
+});
+
+function beginPosition(){
+    $('.birt').css('right','50%');
+    $('.birt').css('bottom','25%');
+    $('.birt').css('transform','rotateY(192deg) rotate(-40deg)');
+}
+
+$('.item').hover(function(event){
+    var $PosTop = event.pageY;
+    var $PosLeft = event.pageX;
+    var $height = $('.item').height();
+    var $width = $('.item').width();
+    var defaultTop = 25;
+    var defaultLeft = 50;
+    var topNew = $PosTop > ( $height/2) + 30 ? defaultTop - 10 :  defaultTop + 10;
+    var leftNew = $PosLeft > ( $width/ 3) + 30 ? defaultLeft - 10 :   defaultLeft +10;
+    $('.birt').css('right',leftNew +'%');
+    $('.birt').css('bottom', topNew +'%');
+    console.log($PosTop, ( $height/2) + 30);
+
+}, function(){
+    beginPosition();
+});
+
+</script>
+</html>

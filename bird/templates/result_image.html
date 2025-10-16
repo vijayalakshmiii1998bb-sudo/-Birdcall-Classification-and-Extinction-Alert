@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="result-wrap" style="opacity: 0.9;">
+  <div class="result-card card">
+    <!-- Uploaded Image -->
+    <div class="media-col">
+      <img class="uploaded pop" src="{{ image_url }}" alt="Uploaded Image" />
+    </div>
+
+    <!-- Prediction Info -->
+    <div class="meta-col">
+      <h2>{{ predicted_class }}</h2>
+      <p><strong>Predicted Class:</strong> {{ predicted_class }}</p>
+      <p><strong>Confidence:</strong> {{ confidence }}%</p>
+
+      <div class="cta">
+        <a href="/image/" class="btn">Try Another Image</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+{% block content %}
+<section class="result-wrap" style='opacity:60%'>
+  <div class="result-card card">
+    <div class="media-col">
+      <img class="uploaded pop" src="{{ uploaded_url }}" alt="Uploaded" />
+    </div>
+    <div class="meta-col" style=''>
+      <h2>{{ pred.display_name }}</h2>
+      <p class="sci">{{ pred.scientific_name }}</p>
+      <p><strong>Predicted class:</strong> {{ pred.raw_label }} • <strong>Confidence:</strong> {{ pred.score }}</p>
+      <p><strong>Habitat:</strong> {{ pred.habitat }}</p>
+      <ul class="facts">
+        {% for f in pred.facts %}<li>{{ f }}</li>{% empty %}<li>No facts yet.</li>{% endfor %}
+      </ul>
+      <div class="cta"><a href="/image/" class="btn">Try another</a></div>
+    </div>
+  </div>
+</section>
+{% endblock %} {% endcomment %}

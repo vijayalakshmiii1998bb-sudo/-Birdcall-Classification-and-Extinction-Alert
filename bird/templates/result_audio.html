@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="result-wrap" style='opacity:60%'>
+  <div class="result-card card">
+    <div class="media-col">
+      <audio class="uploaded" controls src="{{ uploaded_url }}"></audio>
+    </div>
+    <div class="meta-col">
+      <h2>{{ pred.display_name }}</h2>
+      <p class="sci">{{ pred.scientific_name }}</p>
+      <p><strong>Predicted class:</strong> {{ pred.raw_label }} • <strong>Confidence:</strong> {{ pred.score }}</p>
+      <p><strong>Habitat:</strong> {{ pred.habitat }}</p>
+      <ul class="facts">
+        {% for f in pred.facts %}<li>{{ f }}</li>{% empty %}<li>No facts yet.</li>{% endfor %}
+      </ul>
+      <div class="cta"><a href="/audio/" class="btn">Try another</a></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

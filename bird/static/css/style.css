@@ -1,0 +1,106 @@
+:root { --green:#0b3d2e; --mint:#2fbf71; --sky:#9be7ff; --gold:#ffd166; --cream:#fff8e6; --ink:#0e0f12; }
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--cream);color:var(--ink)}
+.forest-bg{background:linear-gradient(120deg, #072a22 0%, #0c4638 50%, #0b3d2e 100%) fixed; color:#ecf9f2}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:rgba(0,0,0,.25);backdrop-filter:blur(6px);position:sticky;top:0}
+.title{margin:0;font-size:24px;letter-spacing:1px}
+.nav .btn{margin-left:8px}
+.btn{display:inline-block;padding:10px 16px;border-radius:999px;border:1px solid #fff3;transition:transform .2s, background .2s;color:#fff;text-decoration:none}
+.btn:hover{transform:translateY(-2px);background:#fff2;color:#fff}
+.btn-primary{background:var(--mint);border-color:transparent;color:#05251d}
+.btn-primary:hover{filter:brightness(1.1)}
+.footer{padding:24px;text-align:center;color:#fff8}
+
+/* .split-hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 90px)} */
+/* .hero-left{background:url('/static/img/forest_half.jpg') center/cover no-repeat;position:relative} */
+.overlay-card{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(0,0,0,.35);padding:18px;border-radius:16px}
+/* .hero-right{padding:24px;overflow:auto} */
+.grid-title{margin:0 0 12px;color:#fff}
+.birds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+.bird-card{background:rgba(255,255,255,.08);border:1px solid #fff2;border-radius:18px;overflow:hidden;transform:translateZ(0)}
+.bird-thumb{aspect-ratio:4/3;overflow:hidden}
+.bird-thumb img{width:100%;height:100%;object-fit:cover;transform:scale(1);transition:transform .6s ease}
+.bird-card:hover .bird-thumb img{transform:scale(1.1)}
+.bird-info{padding:10px 12px}
+.sci{opacity:.85;font-style:italic}
+
+.upload-wrap, .result-wrap{padding:32px;max-width:1100px;margin:0 auto}
+.card{background:#fff;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.form-card{padding:24px}
+.form-card input[type=file]{padding:14px;border:2px dashed #ddd;border-radius:12px;width:100%;background:#fafafa}
+.form-card button{margin-top:12px}
+
+.result-card{display:grid;grid-template-columns:420px 1fr;gap:20px;padding:20px}
+.media-col{display:flex;align-items:center;justify-content:center;background:#f6f9fb;border-radius:14px;padding:14px}
+.media-col img.uploaded{max-width:100%;border-radius:12px}
+.meta-col h2{margin:.2em 0}
+.facts{padding-left:18px}
+
+@media (max-width: 900px){
+  .split-hero{grid-template-columns:1fr}
+  .result-card{grid-template-columns:1fr}
+}
+
+.pop{animation:pop .7s ease}
+@keyframes pop{0%{transform:scale(.96);opacity:.2}100%{transform:scale(1);opacity:1}}
+
+/* NEW single hero at top */
+.hero{position:relative;min-height:52vh}
+.hero-bg{position:absolute;inset:0;background:url('/static/img/forest_half.jpg') center/cover no-repeat;filter:brightness(.9)}
+.overlay-card{position:absolute;top:24px;left:24px;right:24px;background:rgba(0,0,0,.35);padding:18px;border-radius:16px}
+
+/* species grid now a separate section under hero */
+.species-section{padding:24px}
+.grid-title{margin:0 0 12px;color:#fff}
+
+/* ===== Fix: readable text on white result cards ===== */
+.result-wrap,
+.result-card,
+.result-card .meta-col {
+  color: #0e1b17 !important;              /* dark text */
+}
+
+.result-card { 
+  background: #ffffff !important; 
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.result-card .meta-col h2 { 
+  color: #0e1b17 !important; 
+  font-weight: 800; 
+}
+
+.result-card .sci { 
+  color: #475b66 !important; 
+  opacity: 1 !important; 
+  font-style: italic; 
+}
+
+.result-card strong { 
+  color: #0e1b17 !important; 
+  font-weight: 700; 
+}
+
+.result-card .facts li { 
+  color: #23333b !important; 
+}
+
+.media-col { 
+  background: #f6f9fb; 
+  border-radius: 14px; 
+  padding: 14px; 
+}
+
+.meta-col { 
+  display: flex; 
+  flex-direction: column; 
+  gap: .6rem; 
+  color: black
+}
+
+
+
+
+
+
+
+

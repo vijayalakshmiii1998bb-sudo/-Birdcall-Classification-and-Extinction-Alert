@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% comment %} {% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!-- TOP HERO: classifier first -->
+<section class="hero hero--forest">
+    <center>
+  <div class="overlay-card hero__content">
+    <h2>Welcome to Your Bird Classifier</h2>
+    <p>Upload an image or a bird call and get instant predictions.</p>
+    <div class="cta">
+      <a class="btn" href="/audio/">Predict from Audio</a>
+      <a class="btn btn-primary" href="/image/">Predict from Image</a>
+    </div>
+  </div>
+</center>
+</section>
+
+<!-- SPECIES GRID BELOW -->
+<section class="species-section">
+  <h3 class="grid-title">18 Spotlight Species</h3>
+  <div class="birds-grid">
+    {% for sp in showcase %}
+      <article class="bird-card pop">
+        <div class="bird-thumb">
+            {% static 'bird/img/' as IMG %}
+            <img src="{% static 'img/' %}{{ sp.image_file }}"
+            onerror="this.onerror=null;this.src='{% static 'img/placeholder.jpg' %}'"
+            alt="{{ sp.display_name }}" />
+        </div>
+        <div class="bird-info">
+          <h4>{{ sp.display_name }}</h4>
+          <p class="sci">{{ sp.scientific_name }}</p>
+        </div>
+
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+ {% endcomment %}
+
+
+
+
+<style>
+/* unique class names to avoid clashes */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:18px;
+  margin:18px 0 32px;
+}
+.gallery-card{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/4;                 /* keeps card height consistent */
+  border-radius:16px;
+  overflow:hidden;
+  background:#0f3a32;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
+  isolation:isolate;
+}
+.gallery-img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;                 /* fill without distortion */
+  display:block;
+  transition:transform .35s ease;
+}
+.gallery-card:hover .gallery-img{ transform:scale(1.05); }
+.gallery-overlay{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:12px 14px;
+  background:linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0));
+  color:#fff;
+}
+.gallery-title{ margin:0 0 4px; font-weight:800; font-size:1rem; }
+.gallery-sci{ margin:0; font-size:.88rem; opacity:.9; font-style:italic; }
+/* kill any old styles that might interfere */
+.bird-thumb,.bird-info,.bird-card,.bird-overlay,.bird-img{ all:unset; }
+</style>
+
+
+<section class="hero hero--forest">
+    <center>
+  <div class="overlay-card hero__content">
+    <h2>Welcome to Your Bird Classifier</h2>
+    <p>Upload an image or a bird call and get instant predictions.</p>
+    <div class="cta">
+      <a class="btn" href="/audio/">Predict from Audio</a>
+      <a class="btn btn-primary" href="/image/">Predict from Image</a>
+    </div>
+  </div>
+</center>
+</section>
+
+<section class="species-section">
+  <h3>20 Spotlight Species</h3>
+  <div class="gallery-grid">
+    {% for sp in showcase %}
+      <article class="gallery-card">
+        <img class="gallery-img"
+             src="{% static 'img/' %}{{ sp.image_file|cut:'.jpg'|cut:'.png'|cut:'.jpeg' }}.jpg"
+             alt="{{ sp.display_name }}"
+             onerror="
+               if(!this.dataset.triedPng){
+                 this.dataset.triedPng='1';
+                 this.src=this.src.replace('.jpg','.png');
+               }
+               else if(!this.dataset.triedJpeg){
+                 this.dataset.triedJpeg='1';
+                 this.src=this.src.replace('.png','.jpeg');
+               }
+             ">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">{{ sp.display_name }}</h4>
+          <p class="gallery-sci"><em>{{ sp.scientific_name }}</em></p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% comment %} 
+<section class="species-section">
+  <h3>20 Spotlight Species</h3>
+  <div class="gallery-grid">
+    {% for sp in showcase %}
+      <article class="gallery-card">
+        <img class="gallery-img" src="{% static 'img/' %}{{ sp.image_file }}" alt="{{ sp.display_name }}">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">{{ sp.display_name }}</h4>
+          <p class="gallery-sci"><em>{{ sp.scientific_name }}</em></p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  
+</section> {% endcomment %}
+
+{% endblock %}
